@@ -1,0 +1,66 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { Media } from "@/components/ui/Media";
+import { school } from "@/lib/data/school";
+
+export function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-[var(--color-ink)]">
+      <div className="absolute inset-0">
+        <Media
+          src="/images/school/hero.webp"
+          alt="[Hero photograph of the school campus or students]"
+          tone="ink"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/70 to-[var(--color-ink)]/20" />
+      </div>
+
+      <Container className="relative flex min-h-[86vh] flex-col justify-end gap-10 pb-20 pt-40 md:min-h-[92vh] md:pb-28">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="font-display text-[1.05rem] italic text-[var(--color-brass-light)]">
+            {school.name}
+          </p>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl font-display text-[2.6rem] leading-[1.08] text-white md:text-[4.2rem]"
+        >
+          {school.tagline}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-xl text-[1.1rem] leading-relaxed text-white/80"
+        >
+          {school.philosophy}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap items-center gap-5"
+        >
+          <Button href="/admissions" variant="primary">
+            Explore Admissions
+          </Button>
+          <Button href="/about" variant="ghostLight">
+            Discover Our School
+          </Button>
+        </motion.div>
+      </Container>
+    </section>
+  );
+}
