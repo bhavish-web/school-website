@@ -19,14 +19,6 @@ export const academicStages: AcademicStage[] = [
     image: { src: "/images/academics/primary.webp", alt: "[Primary classroom]" },
   },
   {
-    id: "middle-school",
-    stage: "Middle School",
-    ageRange: "[Age Range]",
-    description: "[Short description of the middle school programme and approach.]",
-    focusAreas: ["[Focus Area]", "[Focus Area]", "[Focus Area]"],
-    image: { src: "/images/academics/middle-school.webp", alt: "[Middle School classroom]" },
-  },
-  {
     id: "senior-secondary",
     stage: "Senior Secondary",
     ageRange: "[Age Range]",

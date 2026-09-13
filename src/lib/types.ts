@@ -57,28 +57,6 @@ export type EventItem = {
   cta: { label: string; href: string } | null;
 };
 
-export type NewsItem = {
-  slug: string;
-  title: string;
-  date: string;
-  category: string;
-  thumbnail: ImageRef;
-  description: string;
-  body: string;
-};
-
-export type Achievement = {
-  id: string;
-  title: string;
-  person: string;
-  competition: string;
-  date: string;
-  category: string;
-  description: string;
-  result: string;
-  image: ImageRef;
-};
-
 export type FacultyMember = {
   id: string;
   name: string;

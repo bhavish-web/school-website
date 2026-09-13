@@ -13,9 +13,8 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/academics", label: "Academics" },
   { href: "/campus", label: "Campus" },
-  { href: "/student-life", label: "Student Life" },
-  { href: "/achievements", label: "Achievements" },
-  { href: "/news", label: "News" },
+  { href: "/student-experience", label: "Student Experience" },
+  { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
 ];
 

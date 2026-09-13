@@ -87,41 +87,6 @@ export default function ContactPage() {
           </Reveal>
         </Container>
       </section>
-
-      <section className="bg-[var(--color-paper)] py-20">
-        <Container className="max-w-xl">
-          <Reveal>
-            <h2 className="font-display text-[1.6rem] text-[var(--color-ink)]">Send an Admission Enquiry</h2>
-            <form className="mt-8 flex flex-col gap-5">
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <input
-                  className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
-                  placeholder="Full name"
-                  aria-label="Full name"
-                />
-                <input
-                  className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
-                  placeholder="Phone number"
-                  aria-label="Phone number"
-                />
-              </div>
-              <input
-                className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
-                placeholder="Email address"
-                aria-label="Email address"
-                type="email"
-              />
-              <textarea
-                className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
-                placeholder="Message"
-                aria-label="Message"
-                rows={4}
-              />
-              <Button type="submit" variant="primary" className="self-start">Send Enquiry</Button>
-            </form>
-          </Reveal>
-        </Container>
-      </section>
     </>
   );
 }

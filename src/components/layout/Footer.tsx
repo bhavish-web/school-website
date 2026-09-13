@@ -11,13 +11,13 @@ const columns = [
       { href: "/about", label: "About" },
       { href: "/academics", label: "Academics" },
       { href: "/campus", label: "Campus" },
-      { href: "/achievements", label: "Achievements" },
+      { href: "/student-experience", label: "Student Experience" },
     ],
   },
   {
     title: "School",
     links: [
-      { href: "/news", label: "News & Announcements" },
+      { href: "/events", label: "Events" },
       { href: "/gallery", label: "Gallery" },
       { href: "/mandatory-disclosure", label: "Mandatory Disclosure" },
       { href: "/privacy-policy", label: "Privacy Policy" },
