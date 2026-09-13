@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = { title: "Mandatory Disclosure" };
 
@@ -20,19 +21,21 @@ export default function MandatoryDisclosurePage() {
   return (
     <section className="bg-white py-24">
       <Container className="max-w-3xl">
-        <h1 className="font-display text-[2.2rem] text-[var(--color-ink)]">Mandatory Disclosure</h1>
-        <p className="mt-4 text-[0.95rem] leading-relaxed text-[var(--color-slate)]">
-          [This page will list the school&rsquo;s mandatory public disclosure information as required
-          by the affiliating board, once the verified details and supporting documents are provided.]
-        </p>
-        <dl className="mt-10 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
-          {rows.map((r) => (
-            <div key={r.label} className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[1fr_1.2fr] sm:gap-4">
-              <dt className="text-[0.9rem] font-medium text-[var(--color-ink)]">{r.label}</dt>
-              <dd className="text-[0.9rem] text-[var(--color-slate)]">{r.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <Reveal>
+          <h1 className="font-display text-[2.2rem] text-[var(--color-ink)]">Mandatory Disclosure</h1>
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-[var(--color-slate)]">
+            [This page will list the school&rsquo;s mandatory public disclosure information as required
+            by the affiliating board, once the verified details and supporting documents are provided.]
+          </p>
+          <dl className="mt-10 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+            {rows.map((r) => (
+              <div key={r.label} className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[1fr_1.2fr] sm:gap-4">
+                <dt className="text-[0.9rem] font-medium text-[var(--color-ink)]">{r.label}</dt>
+                <dd className="text-[0.9rem] text-[var(--color-slate)]">{r.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </Container>
     </section>
   );

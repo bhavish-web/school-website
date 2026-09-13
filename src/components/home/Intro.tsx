@@ -1,13 +1,15 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Media } from "@/components/ui/Media";
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { school } from "@/lib/data/school";
 
 export function Intro() {
   return (
     <section className="bg-white py-24 md:py-32">
       <Container className="grid grid-cols-1 items-center gap-16 md:grid-cols-2">
-        <div>
+        <Reveal>
           <h2 className="font-display text-[2rem] leading-[1.15] text-[var(--color-ink)] md:text-[2.9rem]">
             [A short, confident introduction to the school&rsquo;s identity and story.]
           </h2>
@@ -16,25 +18,30 @@ export function Intro() {
             replace with real introductory copy once available.]
           </p>
 
-          <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--color-line)] pt-10 sm:grid-cols-4 md:grid-cols-2">
+          <RevealGroup
+            className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--color-line)] pt-10 sm:grid-cols-4 md:grid-cols-2"
+            stagger={0.1}
+          >
             {school.stats.map((s) => (
-              <div key={s.label}>
-                <dt className="font-display text-[2.1rem] text-[var(--color-ink)]">{s.value}</dt>
-                <dd className="mt-1 text-[0.85rem] text-[var(--color-slate)]">{s.label}</dd>
-              </div>
+              <RevealItem key={s.label}>
+                <p className="font-display text-[2.3rem] text-[var(--color-brass)]">
+                  <AnimatedNumber value={s.value} />
+                </p>
+                <p className="mt-1 text-[0.85rem] text-[var(--color-slate)]">{s.label}</p>
+              </RevealItem>
             ))}
-          </dl>
+          </RevealGroup>
 
           <div className="mt-10">
             <Button href="/about" variant="secondary">
               Discover Our Story
             </Button>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
-          <Media src="/images/school/campus-wide.webp" alt="[Wide photograph of the school campus]" />
-        </div>
+        <Reveal delay={0.15} className="img-zoom-wrap relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+          <Media src="/images/school/campus-wide.webp" alt="[Wide photograph of the school campus]" zoom />
+        </Reveal>
       </Container>
     </section>
   );

@@ -1,18 +1,19 @@
 import { SchoolInfo } from "@/lib/types";
 
-// Replace every bracketed value with the school's real information.
-// Nothing here is fabricated — these are structural placeholders only.
+// Replace every remaining bracketed value with the school's real information.
+// Name, tagline, and locality below come directly from the official logo —
+// everything else is a structural placeholder until verified.
 export const school: SchoolInfo = {
-  name: "[School Name]",
-  shortName: "[Short Name]",
-  tagline: "[School Tagline]",
+  name: "Jyothi Model High School",
+  shortName: "JMHS",
+  tagline: "Education Is Light Of Life",
   philosophy:
     "[One to two sentences describing the school's educational philosophy — what it believes about how children learn and grow.]",
   establishedYear: "[Established Year]",
   studentCount: "[Student Count]",
   facultyCount: "[Faculty Count]",
   boardAffiliation: "[Board Affiliation]",
-  address: "[School Address]",
+  address: "Medibavi, Secunderabad, [Full Address / Pincode]",
   phone: "[Phone Number]",
   whatsapp: null,
   email: "[Email Address]",

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: school.name,
     description: school.philosophy,
     type: "website",
-    images: ["/images/school/og-cover.webp"],
+    images: ["/images/school/logo.png"],
   },
   icons: {
     icon: "/favicon.ico",

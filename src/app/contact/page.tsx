@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { school } from "@/lib/data/school";
 
 export const metadata: Metadata = { title: "Contact" };
@@ -11,19 +12,21 @@ export default function ContactPage() {
     <>
       <section className="bg-[var(--color-ink)] py-24 md:py-32">
         <Container>
-          <p className="font-display italic text-[var(--color-brass-light)]">Contact</p>
-          <h1 className="mt-4 max-w-2xl font-display text-[2.4rem] leading-[1.1] text-white md:text-[3.2rem]">
-            We&rsquo;d love to hear from you
-          </h1>
+          <Reveal>
+            <p className="font-display italic text-[var(--color-gold-bright)]">Contact</p>
+            <h1 className="mt-4 max-w-2xl font-display text-[2.4rem] leading-[1.1] text-white md:text-[3.2rem]">
+              We&rsquo;d love to hear from you
+            </h1>
+          </Reveal>
         </Container>
       </section>
 
       <section className="bg-white py-20">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1fr]">
-          <div>
+          <Reveal>
             <ul className="flex flex-col gap-6">
               <li className="flex gap-4">
-                <MapPin size={22} className="mt-1 shrink-0 text-[var(--color-brass)]" />
+                <MapPin size={22} className="mt-1 shrink-0 text-[var(--color-gold)]" />
                 <div>
                   <p className="font-medium text-[var(--color-ink)]">Address</p>
                   <p className="text-[0.95rem] text-[var(--color-slate)]">{school.address}</p>
@@ -31,7 +34,7 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <Phone size={22} className="mt-1 shrink-0 text-[var(--color-brass)]" />
+                <Phone size={22} className="mt-1 shrink-0 text-[var(--color-gold)]" />
                 <div>
                   <p className="font-medium text-[var(--color-ink)]">Phone</p>
                   <p className="text-[0.95rem] text-[var(--color-slate)]">{school.phone}</p>
@@ -39,7 +42,7 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="flex gap-4">
-                <Mail size={22} className="mt-1 shrink-0 text-[var(--color-brass)]" />
+                <Mail size={22} className="mt-1 shrink-0 text-[var(--color-gold)]" />
                 <div>
                   <p className="font-medium text-[var(--color-ink)]">Email</p>
                   <p className="text-[0.95rem] text-[var(--color-slate)]">{school.email}</p>
@@ -48,7 +51,7 @@ export default function ContactPage() {
               </li>
               {school.whatsapp && (
                 <li className="flex gap-4">
-                  <MessageCircle size={22} className="mt-1 shrink-0 text-[var(--color-brass)]" />
+                  <MessageCircle size={22} className="mt-1 shrink-0 text-[var(--color-gold)]" />
                   <div>
                     <p className="font-medium text-[var(--color-ink)]">WhatsApp</p>
                     <Button href={`https://wa.me/${school.whatsapp}`} variant="ghost" className="mt-1">WhatsApp Us</Button>
@@ -56,16 +59,16 @@ export default function ContactPage() {
                 </li>
               )}
               <li id="timings" className="flex gap-4">
-                <Clock size={22} className="mt-1 shrink-0 text-[var(--color-brass)]" />
+                <Clock size={22} className="mt-1 shrink-0 text-[var(--color-gold)]" />
                 <div>
                   <p className="font-medium text-[var(--color-ink)]">Office Timings</p>
                   <p className="text-[0.95rem] text-[var(--color-slate)]">{school.officeHours}</p>
                 </div>
               </li>
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="overflow-hidden rounded-2xl bg-[var(--color-paper)]">
+          <Reveal delay={0.12} className="overflow-hidden rounded-2xl bg-[var(--color-paper)]">
             {school.mapEmbedUrl ? (
               <iframe
                 src={school.mapEmbedUrl}
@@ -81,22 +84,42 @@ export default function ContactPage() {
                 </p>
               </div>
             )}
-          </div>
+          </Reveal>
         </Container>
       </section>
 
       <section className="bg-[var(--color-paper)] py-20">
         <Container className="max-w-xl">
-          <h2 className="font-display text-[1.6rem] text-[var(--color-ink)]">Send an Admission Enquiry</h2>
-          <form className="mt-8 flex flex-col gap-5">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <input className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem]" placeholder="Full name" aria-label="Full name" />
-              <input className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem]" placeholder="Phone number" aria-label="Phone number" />
-            </div>
-            <input className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem]" placeholder="Email address" aria-label="Email address" type="email" />
-            <textarea className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem]" placeholder="Message" aria-label="Message" rows={4} />
-            <Button type="submit" variant="primary" className="self-start">Send Enquiry</Button>
-          </form>
+          <Reveal>
+            <h2 className="font-display text-[1.6rem] text-[var(--color-ink)]">Send an Admission Enquiry</h2>
+            <form className="mt-8 flex flex-col gap-5">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <input
+                  className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
+                  placeholder="Full name"
+                  aria-label="Full name"
+                />
+                <input
+                  className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
+                  placeholder="Phone number"
+                  aria-label="Phone number"
+                />
+              </div>
+              <input
+                className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
+                placeholder="Email address"
+                aria-label="Email address"
+                type="email"
+              />
+              <textarea
+                className="rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-[0.95rem] transition-shadow focus:border-[var(--color-brass)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brass)]/25"
+                placeholder="Message"
+                aria-label="Message"
+                rows={4}
+              />
+              <Button type="submit" variant="primary" className="self-start">Send Enquiry</Button>
+            </form>
+          </Reveal>
         </Container>
       </section>
     </>

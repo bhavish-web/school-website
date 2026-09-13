@@ -10,28 +10,34 @@
 
 /* ============================================================
    DESIGN TOKENS
-   Derived provisionally in the absence of the official school
-   logo. Once the logo is supplied, update the hex values below —
-   every component reads color through these variables, so the
-   entire site re-themes from this one block.
+   Derived directly from the official Jyothi Model High School
+   logo: the deep red ring, olive-green ring, marigold/orange and
+   diya-lamp tones. Every component reads color through these
+   variables, so the entire site re-themes from this one block.
    ============================================================ */
 :root {
-  /* Brand palette (placeholder — replace once logo is provided) */
-  --color-ink: #14213D;        /* primary — headers, nav, dark bands */
-  --color-ink-2: #1C2C4F;      /* ink, one step lighter, for gradients/hover */
-  --color-brass: #A9812F;      /* accent — CTAs, highlights, achievement */
-  --color-brass-light: #C9A24E;
-  --color-forest: #2F4739;     /* secondary accent — sports/nature/variety */
-  --color-paper: #F6F4EE;      /* warm off-white section background */
+  /* Brand palette — matched directly to the logo's actual saturated hues */
+  --color-ink: #2E0F08;        /* primary — headers, nav, dark bands (deep diya-bowl red-brown) */
+  --color-ink-2: #4A160C;      /* ink, one step lighter, for gradients/hover */
+  --color-brass: #E2231A;      /* accent — CTAs, primary actions (logo red, full saturation) */
+  --color-brass-light: #F5821F;/* hover state (logo's orange ring) */
+  --color-gold: #F5A623;       /* icons, labels, secondary highlights (logo's marigold/flame) */
+  --color-gold-bright: #FFD400;/* flame-yellow — sparing use: badges, number pops, glints */
+  --color-forest: #8DB92E;     /* secondary accent — variety (logo's olive ring, full saturation) */
+  --color-paper: #FDF6E9;      /* warm cream section background (logo's inner yellow, softened) */
   --color-white: #FFFFFF;
-  --color-charcoal: #20242B;   /* body text on light */
-  --color-slate: #565C68;      /* secondary text on light */
-  --color-line: #E3DFD2;       /* hairline dividers on paper */
+  --color-charcoal: #231007;   /* body text on light — warm near-black */
+  --color-slate: #705645;      /* secondary text on light — warm taupe */
+  --color-line: #EDDFC4;       /* hairline dividers on paper */
   --color-line-dark: rgba(255,255,255,0.14);
+
+  --gradient-flame: linear-gradient(135deg, var(--color-brass) 0%, var(--color-brass-light) 55%, var(--color-gold-bright) 100%);
+  --gradient-ink: linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-2) 100%);
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
   --container-max: 1200px;
 }
 
@@ -40,6 +46,7 @@
   --color-ink-2: var(--color-ink-2);
   --color-brass: var(--color-brass);
   --color-brass-light: var(--color-brass-light);
+  --color-gold: var(--color-gold);
   --color-forest: var(--color-forest);
   --color-paper: var(--color-paper);
   --color-charcoal: var(--color-charcoal);
@@ -93,4 +100,53 @@ body {
 
 @media (min-width: 768px) {
   .section-container { padding-inline: 2.5rem; }
+}
+
+/* ============================================================
+   MOTION & INTERACTION UTILITIES
+   ============================================================ */
+
+.hover-lift {
+  transition: transform 0.35s var(--ease-premium), box-shadow 0.35s var(--ease-premium);
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -24px rgba(46, 15, 8, 0.35);
+}
+
+.img-zoom {
+  transition: transform 0.6s var(--ease-premium);
+}
+.img-zoom-wrap:hover .img-zoom {
+  transform: scale(1.06);
+}
+
+.text-flame {
+  background: var(--gradient-flame);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-press {
+  transition: transform 0.15s var(--ease-premium), box-shadow 0.25s var(--ease-premium);
+}
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-line {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift, .img-zoom, .btn-press { transition: none !important; }
+  .hover-lift:hover { transform: none; }
+  .shimmer-line { animation: none; }
 }

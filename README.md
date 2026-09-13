@@ -1,13 +1,16 @@
-# School Website — Design System & Starter Build
+# Jyothi Model High School — Website
 
-A premium, data-driven school website built with **Next.js 16 (App Router)
-+ TypeScript + Tailwind CSS v4 + Framer Motion**. Content and the visual
-system are fully separated from the UI, so you (or anyone) can replace
-text, images, and the logo later without touching any component code.
+A premium, data-driven school website for **Jyothi Model High School**
+(Medibavi, Secunderabad), built with **Next.js 16 (App Router) +
+TypeScript + Tailwind CSS v4 + Framer Motion**. The color system is
+derived from the official school logo, and content is fully separated
+from the UI, so anyone can replace text and images later without
+touching component code.
 
 This is phase one of the brief: the design system, content architecture,
-component library, and the highest-priority pages are built and working.
-See "What's built vs. what's next" below for exactly what's left.
+component library, logo integration, and the highest-priority pages are
+built and working. See "What's built vs. what's next" below for exactly
+what's left.
 
 ---
 
@@ -78,16 +81,22 @@ each section.
 
 ## How to add the official logo
 
-The site currently uses a text mark (the school's initials in a circle)
-in the navbar and footer as a placeholder. Once you provide the logo:
+The official Jyothi Model High School logo is already wired in — it lives
+at `/public/images/school/logo.png` (background removed so it drops
+cleanly onto both light and dark sections) and renders in the navbar,
+footer, and favicon. `/public/images/school/logo-original.png` keeps the
+untouched original file for reference.
 
-1. Add the file at `/public/images/school/logo.svg` (or `.png`).
-2. In `/src/components/layout/Navbar.tsx` and `Footer.tsx`, replace the
-   `<span>` initials mark with an `<Image src="/images/school/logo.svg" />`.
-3. Re-derive the color tokens in `/src/app/globals.css` (see below) from
-   the logo's actual colors.
-
-Do not regenerate or re-color the logo itself — use it exactly as supplied.
+If you ever need to swap in an updated version of the logo, just replace
+`logo.png` with the new file (same filename) — no component changes
+needed. To regenerate the favicon from a new logo:
+```bash
+python3 -c "
+from PIL import Image
+img = Image.open('public/images/school/logo.png').convert('RGBA')
+img.save('src/app/favicon.ico', sizes=[(s,s) for s in (16,32,48,64,128,256)])
+"
+```
 
 ## Design system / color tokens
 
@@ -96,16 +105,18 @@ All colors, fonts, and spacing are defined once as CSS variables in
 these variables, so changing a hex value there re-themes the entire site:
 
 ```
---color-ink:    #14213D;  /* primary - nav, dark section bands */
---color-brass:  #A9812F;  /* accent - CTAs, highlights */
---color-forest: #2F4739;  /* secondary accent */
---color-paper:  #F6F4EE;  /* warm off-white section background */
+--color-ink:    #3A1B12;  /* primary — nav overlay, dark section bands (diya-bowl maroon) */
+--color-brass:  #C81E1E;  /* accent — CTAs, primary actions (logo red) */
+--color-gold:   #D99A26;  /* icons, category labels, secondary highlights (logo marigold/flame) */
+--color-forest: #7C9A2E;  /* secondary accent — variety (logo olive ring) */
+--color-paper:  #FBF5E9;  /* warm cream section background (logo inner yellow, softened) */
 ```
 
-These are provisional, chosen to read as trustworthy and premium without
-the school's actual brand colors. Once the logo is supplied, update these
-six values and the whole site re-themes automatically — no component
-touches a hardcoded color.
+These are derived directly from the official logo's four dominant colors
+— the red ring, olive-green ring, marigold/orange flame, and the deep
+maroon of the diya bowl. If the logo is ever refreshed, re-sample these
+values from the new file and the whole site re-themes automatically —
+no component touches a hardcoded color.
 
 Typography: Fraunces (display serif, headlines) + Inter (body/UI),
 self-hosted via @fontsource so there's no external font request.
@@ -116,6 +127,9 @@ self-hosted via @fontsource so there's no external font request.
 
 Built and working:
 - Design system (color tokens, type scale, spacing, buttons, cards)
+  derived from the official logo
+- Official logo integrated into navbar, footer, and favicon (background
+  removed for a clean drop onto both light and dark sections)
 - Full data-driven content architecture (11 typed data files)
 - Placeholder-safe image system (Media component)
 - Homepage (Hero, Quick Actions, Intro, Philosophy, Academics, Campus,
@@ -135,18 +149,17 @@ Built and working:
 
 Recommended next steps (not yet built, in priority order):
 1. Real content pass — replace every bracketed placeholder in
-   /src/lib/data/ with verified school information.
+   /src/lib/data/ with verified school information (full address, phone,
+   email, established year, student/faculty counts, board affiliation).
 2. Real photography — populate /public/images/.
-3. Official logo integration (see above) and a final re-theme of the
-   color tokens to match it.
-4. A dedicated Faculty/Leadership page beyond the About page's leadership
+3. A dedicated Faculty/Leadership page beyond the About page's leadership
    block, once faculty data is ready.
-5. Results/Outcomes page — only build this once real board results or
+4. Results/Outcomes page — only build this once real board results or
    verified outcomes exist to show.
-6. Cross-browser/device visual QA pass and Lighthouse audit once real
+5. Cross-browser/device visual QA pass and Lighthouse audit once real
    images are in place (placeholders keep bundle size artificially low
    right now, so performance numbers will shift with real photography).
-7. Wire the contact form to an actual email/CRM endpoint.
+6. Wire the contact form to an actual email/CRM endpoint.
 
 ---
 

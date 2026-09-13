@@ -21,6 +21,7 @@ export function Media({
   fill = true,
   sizes = "100vw",
   priority = false,
+  zoom = false,
 }: {
   src: string;
   alt: string;
@@ -29,6 +30,9 @@ export function Media({
   fill?: boolean;
   sizes?: string;
   priority?: boolean;
+  /** Adds a subtle zoom-on-hover effect. The immediate parent needs
+   * overflow-hidden and the `img-zoom-wrap` class for this to clip correctly. */
+  zoom?: boolean;
 }) {
   const [errored, setErrored] = useState(false);
 
@@ -64,7 +68,7 @@ export function Media({
       fill={fill}
       sizes={sizes}
       priority={priority}
-      className={clsx("object-cover", className)}
+      className={clsx("object-cover", zoom && "img-zoom", className)}
       onError={() => setErrored(true)}
     />
   );

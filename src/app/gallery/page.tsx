@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { GalleryGrid } from "@/components/shared/GalleryGrid";
+import { Reveal } from "@/components/ui/Reveal";
 import { galleryImages } from "@/lib/data/gallery";
 
 export const metadata: Metadata = { title: "Gallery" };
@@ -10,10 +11,12 @@ export default function GalleryPage() {
     <>
       <section className="bg-[var(--color-ink)] py-24 md:py-32">
         <Container>
-          <p className="font-display italic text-[var(--color-brass-light)]">Gallery</p>
-          <h1 className="mt-4 max-w-2xl font-display text-[2.4rem] leading-[1.1] text-white md:text-[3.2rem]">
-            A look inside our school
-          </h1>
+          <Reveal>
+            <p className="font-display italic text-[var(--color-gold-bright)]">Gallery</p>
+            <h1 className="mt-4 max-w-2xl font-display text-[2.4rem] leading-[1.1] text-white md:text-[3.2rem]">
+              A look inside our school
+            </h1>
+          </Reveal>
         </Container>
       </section>
       <section className="bg-white py-20">

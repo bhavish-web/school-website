@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { school } from "@/lib/data/school";
 
@@ -38,8 +39,8 @@ export function Footer() {
       <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 font-display text-[1.05rem] text-white">
-              {school.shortName?.slice(0, 2) || "SL"}
+            <span className="relative h-12 w-12 shrink-0">
+              <Image src="/images/school/logo.png" alt={`${school.name} logo`} fill className="object-contain" />
             </span>
             <span className="font-display text-[1.1rem] text-white">{school.name}</span>
           </div>

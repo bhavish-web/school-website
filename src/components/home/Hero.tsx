@@ -9,22 +9,33 @@ import { school } from "@/lib/data/school";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[var(--color-ink)]">
-      <div className="absolute inset-0">
+      <motion.div
+        className="absolute inset-0"
+        initial={{ scale: 1.12 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 5, ease: [0.16, 1, 0.3, 1] }}
+      >
         <Media
           src="/images/school/hero.webp"
           alt="[Hero photograph of the school campus or students]"
           tone="ink"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/70 to-[var(--color-ink)]/20" />
-      </div>
+      </motion.div>
 
-      <Container className="relative flex min-h-[86vh] flex-col justify-end gap-10 pb-20 pt-40 md:min-h-[92vh] md:pb-28">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-1.5"
+        style={{ background: "var(--gradient-flame)" }}
+        aria-hidden="true"
+      />
+
+      <Container className="relative flex min-h-[80vh] flex-col justify-end gap-8 pb-16 pt-28 sm:gap-10 sm:pb-20 sm:pt-32 md:min-h-[92vh] md:pb-28 md:pt-40">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-display text-[1.05rem] italic text-[var(--color-brass-light)]">
+          <p className="font-display text-[1.05rem] italic text-[var(--color-gold-bright)]">
             {school.name}
           </p>
         </motion.div>

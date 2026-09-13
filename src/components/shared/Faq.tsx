@@ -21,7 +21,7 @@ export function Faq({ items }: { items: FaqItem[] }) {
               <span className="font-display text-[1.05rem] text-[var(--color-ink)]">{item.question}</span>
               <Plus
                 size={20}
-                className={`shrink-0 text-[var(--color-brass)] transition-transform duration-200 ${
+                className={`shrink-0 text-[var(--color-gold)] transition-transform duration-200 ${
                   isOpen ? "rotate-45" : ""
                 }`}
               />
