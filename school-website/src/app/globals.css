@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/500-italic.css";
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+/* ============================================================
+   DESIGN TOKENS
+   Derived from the official Jyothi Model High School logo, refined
+   for a premium editorial feel: the reds and golds are pulled a
+   shade deeper and paired with generous whitespace, fine hairlines,
+   and restrained motion rather than flat saturated blocks. Every
+   component reads color through these variables, so the entire
+   site re-themes from this one block.
+   ============================================================ */
+:root {
+  /* Brand palette — deepened from the logo's raw hues for a more
+     composed, premium register while staying unmistakably on-brand */
+  --color-ink: #24100A;         /* primary — headers, nav, dark bands */
+  --color-ink-2: #3A1810;       /* ink, one step lighter, for gradients/hover */
+  --color-brass: #B91F1B;       /* accent — CTAs, primary actions */
+  --color-brass-light: #D9531F; /* hover state */
+  --color-gold: #C6922E;        /* icons, labels, secondary highlights — antique gold, not neon */
+  --color-gold-bright: #E8B94A; /* gold for use on dark backgrounds — brighter, still muted vs. raw yellow */
+  --color-forest: #6F8C2C;      /* secondary accent — variety */
+  --color-paper: #FBF7EE;       /* warm cream section background */
+  --color-white: #FFFFFF;
+  --color-charcoal: #221812;    /* body text on light — warm near-black */
+  --color-slate: #6B5B4E;       /* secondary text on light — warm taupe */
+  --color-line: #E7DCC8;        /* hairline dividers on paper */
+  --color-line-dark: rgba(255,255,255,0.12);
+
+  --gradient-flame: linear-gradient(135deg, var(--color-brass) 0%, var(--color-brass-light) 55%, var(--color-gold) 100%);
+  --gradient-ink: linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-2) 100%);
+  --gradient-gold-text: linear-gradient(120deg, var(--color-gold) 0%, var(--color-gold-bright) 50%, var(--color-gold) 100%);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --container-max: 1200px;
+
+  /* Soft, neutral, low-opacity shadows read as premium; saturated
+     colored shadows read as cheap. Keep every shadow warm-neutral. */
+  --shadow-sm: 0 2px 10px -4px rgba(34, 24, 18, 0.12);
+  --shadow-md: 0 16px 40px -16px rgba(34, 24, 18, 0.22);
+  --shadow-lg: 0 30px 70px -24px rgba(34, 24, 18, 0.32);
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-brass: var(--color-brass);
+  --color-brass-light: var(--color-brass-light);
+  --color-gold: var(--color-gold);
+  --color-forest: var(--color-forest);
+  --color-paper: var(--color-paper);
+  --color-charcoal: var(--color-charcoal);
+  --color-slate: var(--color-slate);
+  --color-line: var(--color-line);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+
+.section-container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-container { padding-inline: 2.5rem; }
+}
+
+/* ============================================================
+   MOTION & INTERACTION UTILITIES
+   ============================================================ */
+
+.hover-lift {
+  transition: transform 0.35s var(--ease-premium), box-shadow 0.35s var(--ease-premium);
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.img-zoom {
+  transition: transform 0.6s var(--ease-premium);
+}
+.img-zoom-wrap:hover .img-zoom {
+  transform: scale(1.06);
+}
+
+.text-flame {
+  background: var(--gradient-flame);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-press {
+  transition: transform 0.15s var(--ease-premium), box-shadow 0.25s var(--ease-premium);
+}
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-line {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift, .img-zoom, .btn-press { transition: none !important; }
+  .hover-lift:hover { transform: none; }
+  .shimmer-line { animation: none; }
+}
+
+/* ============================================================
+   PREMIUM TYPOGRAPHY & SURFACE DETAIL
+   ============================================================ */
+
+/* Small tracked-out uppercase label — the "eyebrow" above a heading.
+   Reads as considered editorial design rather than a plain italic tag. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* Tight, considered letter-spacing on large display type — default
+   web-font tracking looks loose and amateur at 3rem+. */
+.heading-tight {
+  letter-spacing: -0.02em;
+}
+
+/* Gold text with a faint horizontal sheen instead of a flat fill —
+   used sparingly, on a handful of numerals/short labels only. */
+.text-gold-sheen {
+  background: var(--gradient-gold-text);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Faint film-grain texture for dark ink sections, so large flat
+   color fields read as considered material rather than a solid div. */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Consistent card elevation, used instead of ad hoc box-shadow values
+   scattered per component. */
+.shadow-elevated { box-shadow: var(--shadow-md); }
+.shadow-floating { box-shadow: var(--shadow-lg); }
