@@ -25,14 +25,6 @@ export type SchoolInfo = {
   mapEmbedUrl: string | null;
   mapUrl: string | null;
   socials: { label: string; url: string }[];
-  stats: { label: string; value: string }[];
-};
-
-export type Pillar = {
-  id: string;
-  title: string;
-  description: string;
-  icon: "excellence" | "leadership" | "innovation" | "arts" | "growth";
 };
 
 export type AcademicStage = {
@@ -87,14 +79,6 @@ export type Achievement = {
   image: ImageRef;
 };
 
-export type Testimonial = {
-  id: string;
-  quote: string;
-  name: string;
-  role: "Parent" | "Student" | "Alumnus";
-  image: ImageRef | null;
-};
-
 export type FacultyMember = {
   id: string;
   name: string;
@@ -109,15 +93,4 @@ export type GalleryImage = {
   id: string;
   category: "Campus" | "Academics" | "Sports" | "Events" | "Celebrations" | "Student Life" | "Competitions";
   image: ImageRef;
-};
-
-export type AdmissionStep = {
-  step: number;
-  title: string;
-  description: string;
-};
-
-export type FaqItem = {
-  question: string;
-  answer: string;
 };

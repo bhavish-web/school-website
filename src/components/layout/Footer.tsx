@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
 import { school } from "@/lib/data/school";
 
 const columns = [
@@ -11,15 +12,6 @@ const columns = [
       { href: "/academics", label: "Academics" },
       { href: "/campus", label: "Campus" },
       { href: "/achievements", label: "Achievements" },
-    ],
-  },
-  {
-    title: "Admissions",
-    links: [
-      { href: "/admissions", label: "Admission Process" },
-      { href: "/admissions#fees", label: "Fee Structure" },
-      { href: "/admissions#faqs", label: "FAQs" },
-      { href: "/contact", label: "Contact Admissions" },
     ],
   },
   {
@@ -36,7 +28,7 @@ const columns = [
 export function Footer() {
   return (
     <footer className="bg-[var(--color-ink)] text-white/70">
-      <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+      <Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr_auto]">
         <div>
           <div className="flex items-center gap-3">
             <span className="relative h-12 w-12 shrink-0">
@@ -68,6 +60,12 @@ export function Footer() {
             </ul>
           </div>
         ))}
+
+        <div className="flex flex-col items-start gap-3 md:justify-center">
+          <h3 className="font-display text-[1.05rem] text-white">Admissions</h3>
+          <p className="max-w-[16rem] text-[0.9rem]">Have a question about enrolling? We&rsquo;re happy to help.</p>
+          <Button href="/contact" variant="primary">Enquire Now</Button>
+        </div>
       </Container>
 
       <div className="border-t border-white/10">

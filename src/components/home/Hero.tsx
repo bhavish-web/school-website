@@ -64,8 +64,8 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-wrap items-center gap-5"
         >
-          <Button href="/admissions" variant="primary">
-            Explore Admissions
+          <Button href="/contact" variant="primary">
+            Enquire About Admissions
           </Button>
           <Button href="/about" variant="ghostLight">
             Discover Our School

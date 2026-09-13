@@ -25,10 +25,4 @@ export const school: SchoolInfo = {
     { label: "Facebook", url: "#" },
     { label: "YouTube", url: "#" },
   ],
-  stats: [
-    { label: "Years of Excellence", value: "[XX+]" },
-    { label: "Students", value: "[XXXX+]" },
-    { label: "Faculty Members", value: "[XX+]" },
-    { label: "Achievements", value: "[XX+]" },
-  ],
 };

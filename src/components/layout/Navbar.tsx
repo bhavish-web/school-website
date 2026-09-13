@@ -15,7 +15,6 @@ const links = [
   { href: "/campus", label: "Campus" },
   { href: "/student-life", label: "Student Life" },
   { href: "/achievements", label: "Achievements" },
-  { href: "/admissions", label: "Admissions" },
   { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
 ];
@@ -68,8 +67,8 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/admissions" variant="primary">
-            Apply Now
+          <Button href="/contact" variant="primary">
+            Enquire Now
           </Button>
         </div>
 
@@ -120,8 +119,8 @@ export function Navbar() {
               ))}
             </nav>
             <Container className="pb-10">
-              <Button href="/admissions" variant="primary" className="w-full" onClick={() => setOpen(false)}>
-                Apply Now
+              <Button href="/contact" variant="primary" className="w-full" onClick={() => setOpen(false)}>
+                Enquire Now
               </Button>
             </Container>
           </motion.div>
