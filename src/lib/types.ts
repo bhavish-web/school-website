@@ -61,10 +61,9 @@ export type FacultyMember = {
   id: string;
   name: string;
   position: string;
-  qualification: string;
   bio: string;
   image: ImageRef;
-  group: "Leadership" | "Academic Leadership" | "Faculty";
+  group: "Management" | "Principal" | "Faculty";
 };
 
 export type GalleryImage = {
