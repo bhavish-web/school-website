@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "", "/about", "/academics", "/student-experience",
     "/events", "/gallery", "/contact",
-    "/mandatory-disclosure", "/privacy-policy",
   ].map((path) => ({ url: `${base}${path}`, lastModified: new Date() }));
 
   const eventRoutes = events.map((e) => ({
