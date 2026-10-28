@@ -12,7 +12,6 @@ import { school } from "@/lib/data/school";
 const links = [
   { href: "/about", label: "About" },
   { href: "/academics", label: "Academics" },
-  { href: "/campus", label: "Campus" },
   { href: "/student-experience", label: "Student Experience" },
   { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
