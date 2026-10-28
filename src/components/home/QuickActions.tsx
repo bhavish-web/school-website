@@ -1,10 +1,9 @@
-import { CalendarDays, Clock, MessageCircle } from "lucide-react";
+import { Clock, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
 const actions = [
   { href: "/contact", label: "Admissions Enquiry", icon: MessageCircle },
-  { href: "/academics#calendar", label: "Academic Calendar", icon: CalendarDays },
   { href: "/contact#timings", label: "School Timings", icon: Clock },
 ];
 
@@ -12,7 +11,7 @@ export function QuickActions() {
   return (
     <div className="relative z-10 -mt-10 md:-mt-12">
       <Container>
-        <div className="flex gap-3 overflow-x-auto rounded-2xl border border-[var(--color-line)] bg-white p-3 shadow-floating md:grid md:grid-cols-3 md:gap-2 md:overflow-visible">
+        <div className="flex gap-3 overflow-x-auto rounded-2xl border border-[var(--color-line)] bg-white p-3 shadow-floating md:grid md:grid-cols-2 md:gap-2 md:overflow-visible">
           {actions.map((a) => {
             const Icon = a.icon;
             return (
