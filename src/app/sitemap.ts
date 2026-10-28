@@ -5,7 +5,7 @@ const base = "https://example.com"; // replace with the school's real domain
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
-    "", "/about", "/academics", "/campus", "/student-experience",
+    "", "/about", "/academics", "/student-experience",
     "/events", "/gallery", "/contact",
     "/mandatory-disclosure", "/privacy-policy",
   ].map((path) => ({ url: `${base}${path}`, lastModified: new Date() }));
