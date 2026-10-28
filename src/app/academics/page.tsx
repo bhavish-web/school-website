@@ -47,17 +47,6 @@ export default function AcademicsPage() {
           </Container>
         </section>
       ))}
-
-      <section id="calendar" className="bg-white py-20">
-        <Container>
-          <Reveal>
-            <h2 className="font-display font-medium text-[1.8rem] text-[var(--color-ink)]">Academic Calendar</h2>
-            <p className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-[var(--color-slate)]">
-              [Add the academic year calendar — term dates, holidays, and key academic milestones — once confirmed.]
-            </p>
-          </Reveal>
-        </Container>
-      </section>
     </>
   );
 }
