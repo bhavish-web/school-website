@@ -18,8 +18,6 @@ const columns = [
     links: [
       { href: "/events", label: "Events" },
       { href: "/gallery", label: "Gallery" },
-      { href: "/mandatory-disclosure", label: "Mandatory Disclosure" },
-      { href: "/privacy-policy", label: "Privacy Policy" },
     ],
   },
 ];
