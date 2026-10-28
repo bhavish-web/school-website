@@ -34,13 +34,6 @@ export function Footer() {
             <span className="font-display font-medium text-[1.05rem] font-medium text-white">{school.name}</span>
           </div>
           <p className="mt-5 max-w-xs text-[0.92rem] font-light leading-relaxed">{school.tagline}</p>
-          <div className="mt-7 flex gap-5 text-[0.8rem] tracking-[0.02em]">
-            {school.socials.map((s) => (
-              <a key={s.label} href={s.url} className="text-white/55 transition-colors hover:text-[var(--color-gold-bright)]">
-                {s.label}
-              </a>
-            ))}
-          </div>
         </div>
 
         {columns.map((col) => (
