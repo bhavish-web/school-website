@@ -7,6 +7,10 @@ import { faculty } from "@/lib/data/faculty";
 
 export const metadata: Metadata = { title: "About" };
 
+const management = faculty.filter((f) => f.group === "Management");
+const principal = faculty.find((f) => f.group === "Principal");
+const teachers = faculty.filter((f) => f.group === "Faculty");
+
 const sections = [
   { title: "Our Story", body: "[The school's founding story and journey — replace with real history.]" },
   { title: "Vision", body: "[The school's vision statement.]" },
@@ -47,22 +51,57 @@ export default function AboutPage() {
       <section className="bg-[var(--color-paper)] py-24">
         <Container>
           <Reveal>
-            <h2 className="font-display font-medium text-[2rem] text-[var(--color-ink)]">Leadership</h2>
+            <p className="eyebrow text-[var(--color-gold)]">The People Behind the School</p>
+            <h2 className="mt-3 font-display font-medium text-[2rem] text-[var(--color-ink)]">Our Management</h2>
           </Reveal>
-          <RevealGroup className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {faculty
-              .filter((f) => f.group === "Leadership")
-              .map((f) => (
-                <RevealItem key={f.id} className="flex flex-col">
-                  <div className="img-zoom-wrap relative aspect-[4/5] overflow-hidden rounded-xl">
-                    <Media src={f.image.src} alt={f.image.alt} zoom />
-                  </div>
-                  <h3 className="mt-4 font-display font-medium text-[1.2rem] text-[var(--color-ink)]">{f.name}</h3>
-                  <p className="text-[0.9rem] text-[var(--color-gold)]">{f.position}</p>
-                  <p className="mt-1 text-[0.85rem] text-[var(--color-slate)]">{f.qualification}</p>
-                  <p className="mt-3 text-[0.92rem] leading-relaxed text-[var(--color-slate)]">{f.bio}</p>
-                </RevealItem>
-              ))}
+          <RevealGroup className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+            {management.map((m) => (
+              <RevealItem key={m.id} className="flex flex-col">
+                <div className="img-zoom-wrap relative aspect-[4/5] overflow-hidden rounded-xl">
+                  <Media src={m.image.src} alt={m.image.alt} zoom />
+                </div>
+                <h3 className="mt-4 font-display font-medium text-[1.15rem] text-[var(--color-ink)]">{m.name}</h3>
+                <p className="text-[0.9rem] text-[var(--color-gold)]">{m.position}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </Container>
+      </section>
+
+      {principal && (
+        <section className="bg-white py-24">
+          <Container className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_3fr] md:items-center">
+            <Reveal className="img-zoom-wrap relative aspect-[4/5] overflow-hidden rounded-2xl">
+              <Media src={principal.image.src} alt={principal.image.alt} zoom />
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="eyebrow text-[var(--color-gold)]">From the Principal&rsquo;s Desk</p>
+              <h2 className="mt-3 font-display font-medium text-[2rem] text-[var(--color-ink)]">{principal.name}</h2>
+              <p className="text-[0.95rem] text-[var(--color-gold)]">{principal.position}</p>
+              <p className="mt-6 text-[1.02rem] leading-relaxed text-[var(--color-slate)]">{principal.bio}</p>
+            </Reveal>
+          </Container>
+        </section>
+      )}
+
+      <section className="bg-[var(--color-paper)] py-24">
+        <Container>
+          <Reveal>
+            <h2 className="font-display font-medium text-[2rem] text-[var(--color-ink)]">Our Faculty</h2>
+            <p className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-[var(--color-slate)]">
+              [A line about the teaching team — their experience and commitment to every child.]
+            </p>
+          </Reveal>
+          <RevealGroup className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+            {teachers.map((t) => (
+              <RevealItem key={t.id} className="flex flex-col">
+                <div className="img-zoom-wrap relative aspect-square overflow-hidden rounded-xl">
+                  <Media src={t.image.src} alt={t.image.alt} zoom />
+                </div>
+                <h3 className="mt-3 font-display font-medium text-[1.05rem] text-[var(--color-ink)]">{t.name}</h3>
+                <p className="text-[0.85rem] text-[var(--color-gold)]">{t.position}</p>
+              </RevealItem>
+            ))}
           </RevealGroup>
         </Container>
       </section>
